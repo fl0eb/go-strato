@@ -1,4 +1,4 @@
-module go-strato
+module github.com/fl0eb/go-strato
 
 go 1.24.2
 
