@@ -1,6 +1,6 @@
 module github.com/fl0eb/go-strato
 
-go 1.24.2
+go 1.22.0
 
 require github.com/antchfx/htmlquery v1.3.4
 
