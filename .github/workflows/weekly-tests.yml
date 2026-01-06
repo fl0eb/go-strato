@@ -26,7 +26,7 @@ jobs:
         STRATO_PASSWORD: ${{ secrets.STRATO_PASSWORD }}
         STRATO_ORDER: ${{ secrets.STRATO_ORDER }}
         STRATO_DOMAIN: ${{ secrets.STRATO_DOMAIN }}
-      run: go test -test.v ./...
+      run: echo Testing against API $STRATO_API && go test -test.v ./...
 
   notify:
     needs: test
