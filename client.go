@@ -157,11 +157,16 @@ func (c *StratoClient) populatePackageID() error {
 		return err
 	}
 	defer resp.Body.Close()
-	div := htmlquery.FindOne(doc, "//div[@data-pkg-name-order='"+c.order+"']")
-	if div == nil {
+	// Find a table row with the order name first
+	pkgNode := htmlquery.FindOne(doc, "//tr[@data-pkg-name-order='"+c.order+"']")
+	// Find a div with the order name
+	if pkgNode == nil {
+		pkgNode = htmlquery.FindOne(doc, "//div[@data-pkg-name-order='"+c.order+"']")
+	}
+	if pkgNode == nil {
 		return errors.New("failed to find order")
 	}
-	linkNode := htmlquery.FindOne(div, ".//a")
+	linkNode := htmlquery.FindOne(pkgNode, ".//a")
 	if linkNode == nil {
 		return errors.New("failed to find link")
 	}
