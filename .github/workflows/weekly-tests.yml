@@ -21,7 +21,7 @@ jobs:
     
     - name: Run integration tests
       env:
-        STRATO_API: ${{ secrets.STRATO_API }}
+        STRATO_API: ${{ vars.STRATO_API }}
         STRATO_IDENTIFIER: ${{ secrets.STRATO_IDENTIFIER }}
         STRATO_PASSWORD: ${{ secrets.STRATO_PASSWORD }}
         STRATO_ORDER: ${{ secrets.STRATO_ORDER }}
